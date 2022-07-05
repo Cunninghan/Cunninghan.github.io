@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>WSL配置</title>
+    <url>/2021/10/03/WSL%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h2 id="共享-SSH-Key"><a href="#共享-SSH-Key" class="headerlink" title="共享 SSH Key"></a>共享 SSH Key</h2><p>本机上已经有一个 SSH Key 了，不想在 WSL 中再生成一个，因为这本来就是同一台电脑，所以可以把 Windows 上的 Key 复制到 WSL 中。具体操作方法如下。</p>
+<h3 id="复制-SSH-Key-到-WSL"><a href="#复制-SSH-Key-到-WSL" class="headerlink" title="复制 SSH Key 到 WSL"></a>复制 SSH Key 到 WSL</h3><p>在 WSL 中执行，其中 是你 Windows 的用户名：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cp -r /mnt/c/Users/&lt;username&gt;/.ssh ~/.ssh)</span><br></pre></td></tr></table></figure>
+
+<p>如下图就是成功了。</p>
+<blockquote>
+<p>这是一个块<br>这是一个块</p>
+</blockquote>
+<p><img src="D:\document\note\success.png" alt="success"></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a href="https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/">https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/</a><br><a href="https://github.community/t/having-an-issue-pull-and-push-in-github/13198/6">https://github.community/t/having-an-issue-pull-and-push-in-github/13198/6</a></p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>环境配置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++ and stl</title>
+    <url>/2022/02/19/c++%20and%20stl/</url>
+    <content><![CDATA[<h1 id="C-and-stl"><a href="#C-and-stl" class="headerlink" title="C++ and stl"></a>C++ and stl</h1><p>sort(a, b)<br>a and b are pointer, range is [a, b).</p>
+<h2 id="string-uva10815"><a href="#string-uva10815" class="headerlink" title="string (uva10815)"></a>string (uva10815)</h2><h3 id="read-a-line"><a href="#read-a-line" class="headerlink" title="read a line"></a>read a line</h3><p>getline(cin. string);<br><strong>note</strong>:don’t read ‘\n’<br>usage:<br>c++</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::ifstream <span class="title">input</span><span class="params">(<span class="string">&quot;filename.txt&quot;</span>)</span></span>;</span><br><span class="line">    std::string line;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( std::<span class="built_in">getline</span>( input, line ) ) &#123;</span><br><span class="line">        std::cout&lt;&lt;line&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>c read the ‘\n’</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> line[<span class="number">1024</span>];</span><br><span class="line">    FILE *fp = fopen(<span class="string">&quot;filename.txt&quot;</span>,<span class="string">&quot;r&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//Checks if file is empty</span></span><br><span class="line">    <span class="keyword">if</span>( fp == <span class="literal">NULL</span> ) &#123;                       </span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( fgets(line,<span class="number">1024</span>,fp) ) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,line);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="read-a-string"><a href="#read-a-string" class="headerlink" title="read a string"></a>read a string</h3><p>deal with space in string when read use cin &gt;&gt; s;</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>(cin &gt;&gt; s) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">length</span>(); i++)</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">isalpha</span>(s[i])) s[i] = <span class="built_in">tolower</span>(s[i]); <span class="keyword">else</span> s[i] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="function">stringstream <span class="title">ss</span><span class="params">(s)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>(ss &gt;&gt; buf) dict.<span class="built_in">insert</span>(buf);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>read(cin &gt;&gt; s or scanf(“%s”, s)) string ignoring “\n”, “\t”, “ “, </p>
+<h3 id="get-the-substring-uva10391"><a href="#get-the-substring-uva10391" class="headerlink" title="get the substring(uva10391)"></a>get the substring(uva10391)</h3><p><strong>note</strong> c++ 一般分片，都是用的是(首地址，size)格式，而不是(begin, end);这种形式倒是在for循环中更常见。其实还是符合人的习惯的。</p>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数:"></a>函数:</h4><p>s1.assign(s, start, size);</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; s : words) _for(j, <span class="number">1</span>, s.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        left.<span class="built_in">assign</span>(s, <span class="number">0</span>, j);</span><br><span class="line">        <span class="keyword">if</span>(words.<span class="built_in">count</span>(left))&#123;</span><br><span class="line">            right.<span class="built_in">assign</span>(s, j, s.<span class="built_in">size</span>() - j);</span><br><span class="line">            <span class="keyword">if</span>(words.<span class="built_in">count</span>(right)) &#123; cout&lt;&lt;s&lt;&lt;endl; <span class="keyword">break</span>; &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="内置方法：s-substr-常和s-find-一块用。"><a href="#内置方法：s-substr-常和s-find-一块用。" class="headerlink" title="内置方法：s.substr() 常和s.find()一块用。"></a>内置方法：s.substr() 常和s.find()一块用。</h4><blockquote>
+<p>string中find()返回值是字母在母串中的位置（下标记录, 从0开始），如果没有找到，那么会返回一个特别的标记npos。<br>（返回值可以看成是一个int型的数）</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">position = s.<span class="built_in">find</span>(<span class="string">&quot;jk&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (position != s.npos)  <span class="comment">//如果没找到，返回一个特别的标志c++中用npos表示，我这里npos取值是4294967295，</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;position is : %d\n&quot;</span> ,position);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>s1 = substr(s, begin, size)<br>s1 = substr(s, begin) // to the end of s</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// CPP program to illustrate substr()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// Take any string</span></span><br><span class="line">	string s = <span class="string">&quot;dog:cat&quot;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Find position of &#x27;:&#x27; using find()</span></span><br><span class="line">	<span class="keyword">int</span> pos = s.<span class="built_in">find</span>(<span class="string">&quot;:&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Copy substring after pos</span></span><br><span class="line">	string sub = s.<span class="built_in">substr</span>(pos + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// prints the result</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;String is: &quot;</span> &lt;&lt; sub;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="string-to-char"><a href="#string-to-char" class="headerlink" title="string to char[]"></a>string to char[]</h3><p>char *str = s.c_str();<br>char *str = &amp;s[0];</p>
+<p>也可以复制一份<br>char str[100];<br>strcpy(str, s.c_str());</p>
+<p><strong>note</strong>: printf can’t print the string dircet, argv should be a pointer</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, s); <span class="comment">// wrong</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>, s.<span class="built_in">c_str</span>()); <span class="comment">//right</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lower-bound-begin-end-x"><a href="#lower-bound-begin-end-x" class="headerlink" title="lower_bound(begin, end, x)"></a>lower_bound(begin, end, x)</h2><p>return the first element poiner in [x, ), or the last element.<br> first element that is not less than value, or last if no such element is found.<br>how to get the position of the array ?<br>eg:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> p = <span class="built_in">lower_bound</span>(a, a+n, x) - a; <span class="comment">// 在已排序数组a中寻找x</span></span><br><span class="line"><span class="keyword">if</span>(p &lt; n &amp;&amp; a[p] == x) <span class="built_in">printf</span>(<span class="string">&quot;%d found at %d\n&quot;</span>, x, p+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%d not found\n&quot;</span>, x);</span><br></pre></td></tr></table></figure>
+<h2 id="vector-uva101"><a href="#vector-uva101" class="headerlink" title="vector (uva101)"></a>vector (uva101)</h2><p>vector<int> a;<br>v.push_back();<br>use a.resize(n) to delet the element</p>
+<h2 id="queue-uva10935"><a href="#queue-uva10935" class="headerlink" title="queue (uva10935)"></a>queue (uva10935)</h2><p>queue<int> q;<br>q.front(), q.pop(), q.push();</p>
+<h2 id="io-uva10815-root-src-algorithm-stl-string-string-cpp"><a href="#io-uva10815-root-src-algorithm-stl-string-string-cpp" class="headerlink" title="io (uva10815, /root/src/algorithm/stl/string/string.cpp)"></a>io (uva10815, /root/src/algorithm/stl/string/string.cpp)</h2><p><strong>note</strong>: they are class, they use their own method;</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="function">stringstream <span class="title">ss</span><span class="params">(s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line">ifsteam fin;</span><br><span class="line"><span class="comment">//open a file</span></span><br><span class="line">fin.<span class="built_in">open</span>(<span class="string">&quot;in.txt&quot;</span>); <span class="comment">//right</span></span><br><span class="line">fin = <span class="built_in">fopen</span>(<span class="string">&quot;in.txt&quot;</span>) <span class="comment">//wrong</span></span><br><span class="line"></span><br><span class="line">fin.<span class="built_in">close</span>(); <span class="comment">//close</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> read string from the fin</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="built_in">whlie</span>(fin &gt;&gt; s)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="set-uva10815"><a href="#set-uva10815" class="headerlink" title="set (uva10815)"></a>set (uva10815)</h2><h3 id="s-insert"><a href="#s-insert" class="headerlink" title="s.insert();"></a>s.insert();</h3><p>insert()不仅可以用来插入元素还能进行查询，这是一个很有用的方法，对于模板来说，不然的话要进行两次。<br>方法：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">pair&lt;iterator,<span class="keyword">bool</span>&gt; <span class="title">insert</span> <span class="params">(<span class="keyword">const</span> value_type&amp; val)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>其中，val 参数表示键值对变量，同时该方法会返回一个 pair 对象，其中 pair.first 表示一个迭代器，pair.second 为一个 bool 类型变量：</p>
+<p>如果成功插入 val，则该迭代器指向新插入的 val，bool 值为 true；<br>如果插入 val 失败，则表明当前 map 容器中存有和 val 的键相同的键值对（用 p 表示），此时返回的迭代器指向 p，bool 值为 false。</p>
+<p>s.erase();</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// UVa10815 Andy&#x27;s First Dictionary</span></span><br><span class="line"><span class="comment">// Rujia Liu</span></span><br><span class="line"><span class="comment">// 题意：输入一个文本，找出所有不同的单词（连续字母序列），按字典序从小到大输出。单词不分大小写。</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">set&lt;string&gt; dict;</span><br><span class="line">string s, buf;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(cin &gt;&gt; s) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">length</span>(); i++)</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">isalpha</span>(s[i])) s[i] = <span class="built_in">tolower</span>(s[i]); <span class="keyword">else</span> s[i] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    <span class="function">stringstream <span class="title">ss</span><span class="params">(s)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>(ss &gt;&gt; buf) dict.<span class="built_in">insert</span>(buf);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(set&lt;string&gt;::iterator it = dict.<span class="built_in">begin</span>(); it != dict.<span class="built_in">end</span>(); ++it)</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>how to add elem; how to traverse(iterator like a pointer); auto sort;</p>
+<h2 id="map-uva12096-uva1592"><a href="#map-uva12096-uva1592" class="headerlink" title="map (uva12096, uva1592)"></a>map (uva12096, uva1592)</h2><p>sometimes we don’t directly opreate the string , instead we map the string<br>to integer and store the string use the vector;</p>
+<h2 id="setw-int-n-打印格式-uva1593"><a href="#setw-int-n-打印格式-uva1593" class="headerlink" title="setw(int n) (打印格式 uva1593)"></a>setw(int n) (打印格式 uva1593)</h2><p>setw()函数<br>setw(int n)是c++中在输出操作中使用的字段宽度设置，设置输出的域宽，n表示字段宽度。只对紧接着的输出有效，紧接着的输出结束后又变回默认的域宽。<br>当后面紧跟着的输出字段长度小于n的时候，在该字段前面用空格补齐；当输出字段长度大于n时，全部整体输出。<br>cout &lt;&lt; left &lt;&lt; setw(w) &lt;&lt; ws[j];</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/fzk0813/article/details/88303902">https://blog.csdn.net/fzk0813/article/details/88303902</a></p>
+</blockquote>
+<h2 id="fill-n-WL-MAXN-0-memset"><a href="#fill-n-WL-MAXN-0-memset" class="headerlink" title="fill_n(WL, MAXN, 0) memset()"></a>fill_n(WL, MAXN, 0) memset()</h2><h2 id="auto-用法，注意事项-对于某些变量可能会遗漏某些属性-是在编译时执行的，相当于宏。"><a href="#auto-用法，注意事项-对于某些变量可能会遗漏某些属性-是在编译时执行的，相当于宏。" class="headerlink" title="auto 用法，注意事项(对于某些变量可能会遗漏某些属性) 是在编译时执行的，相当于宏。"></a>auto 用法，注意事项(对于某些变量可能会遗漏某些属性) 是在编译时执行的，相当于宏。</h2><blockquote>
+<p><a href="https://www.cnblogs.com/KunLunSu/p/7861330.html">https://www.cnblogs.com/KunLunSu/p/7861330.html</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : ex) &#123; <span class="comment">//注意冒号</span></span><br><span class="line">            IPair p2 = <span class="built_in">make_pair</span>(p.first.second, p.first.first);</span><br><span class="line">            <span class="keyword">if</span>(p.second != ex[p2]) &#123; ans = <span class="literal">false</span>; <span class="keyword">break</span>; &#125; </span><br><span class="line">        &#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="ios-sync-with-stdio-false"><a href="#ios-sync-with-stdio-false" class="headerlink" title="ios::sync_with_stdio(false)"></a>ios::sync_with_stdio(false)</h2><p>可以看出这两段代码只有输入输出方式不同，但是提交结果一个AC一个TLE，在竞赛中，遇到大数据时，往往读文件成了程序运行速度的瓶颈，需要更快的读取方式。相信几乎所有的C++学习者都在cin机器缓慢的速度上栽过跟头，于是从此以后发誓不用cin读数据，知道了ios::sync_with_stdio(false);这个可以大幅提高大数据的输入和输出以节省时间</p>
+<h2 id="引用-amp"><a href="#引用-amp" class="headerlink" title="引用&amp;"></a>引用&amp;</h2><blockquote>
+<p><a href="https://www.cnblogs.com/mlgjb/p/8821340.html">https://www.cnblogs.com/mlgjb/p/8821340.html</a></p>
+</blockquote>
+<p>引用就是别名。主要是用在函数参数和返回值上，利用引用可以减少内存复制，如果一个参数或返回值是一个大的对象的话, 值传递消耗内存，传指针代码又不好看，因此考虑引用传递。<br><strong>note</strong>：只在定义函数时用一个引用符号即可，再传递实参是，不需要带了。<br>引用的一个副作用是可以修改原来变量的值，如果不打算修改，可以考虑常引用。const int &amp;a, 这种用法非常常见。<br>例如如果一个函数的参数是字符串, 因此传递的参数有常量字符串，则必须用字符串常引用。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">string <span class="title">foo</span><span class="params">( )</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bar</span><span class="params">(string &amp; s)</span></span>;</span><br><span class="line"><span class="comment">//那么下面的表达式将是非法的：</span></span><br><span class="line"><span class="built_in">bar</span>(<span class="built_in">foo</span>( ));</span><br><span class="line"><span class="built_in">bar</span>(<span class="string">&quot;hello world&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>原因在于foo( )和”hello world”串都会产生一个临时对象，而在C++中，这些临时对象都是const类型的。因此上面的表达式就是试图将一个const类型的对象转换为非const类型，这是非法的。<br>引用型参数应该在能被定义为const的情况下，尽量定义为const </p>
+<h2 id="map-and-set-uva230"><a href="#map-and-set-uva230" class="headerlink" title="map and set(uva230)"></a>map and set(uva230)</h2><p>set 适合添加或者删除元素，同时可以写一个函数，对map进行排列。<br>map 一般用来添加元素，而不用来删除元素，更适合查找。</p>
+]]></content>
+      <tags>
+        <tag>c++ stl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/10/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/2022/02/19/test/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>shell 编程</title>
+    <url>/2022/02/19/shell/</url>
+    <content><![CDATA[<h1 id="shell-编程"><a href="#shell-编程" class="headerlink" title="shell 编程"></a>shell 编程</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a href="https://www.zhihu.com/search?type=content&amp;q=%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0shell%E8%84%9A%E6%9C%AC">https://www.zhihu.com/search?type=content&amp;q=%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0shell%E8%84%9A%E6%9C%AC</a><br><a href="https://missing-semester-cn.github.io/2020/shell-tools/">https://missing-semester-cn.github.io/2020/shell-tools/</a></p>
+</blockquote>
+<h2 id="什么时候用shell"><a href="#什么时候用shell" class="headerlink" title="什么时候用shell"></a>什么时候用shell</h2><p>在某些情况下（尤其是你准备使用read时），你应该反问一下自己，你是否在使用正<br>确的工具来完成这项工作。请记住shell脚本的强项：操控简单的文件和命令。如前面提到的，当<br>你发现你的脚本写得有点繁琐，特别是涉及复杂的字符串或数学处理时，或许你就该试试Python、<br>Per或awk之类的脚本语言了。</p>
+<h2 id="易错"><a href="#易错" class="headerlink" title="易错"></a>易错</h2><ul>
+<li>空格：定义变量不要用空格，比较时才用空格</li>
+<li>变量 shell没有变量类型，可以把所有变量类型看成是字符类型，如果想要取得变量的字符串值需要用$, 想用到比较，整数时，需要一些多余的符号。</li>
+<li>条件语句中有分号, if 是then fi， for 和while是do，done</li>
+<li>第一行一定要加上：#!/usr/bin/bash</li>
+</ul>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li>$(cmd) 命令替换</li>
+<li>通配符</li>
+<li>shell可以获得上一条命令，参数</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
+<li>定义 string=”hello world”</li>
+<li>取值 $string</li>
+<li>比较 [[ $string =”hello world” ]]<br>-z:<br>[[$string]] 检查是否为空</li>
+<li>括号旁边和运算符两边必须添加空格</li>
+</ul>
+<h2 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h2><ul>
+<li>定义 integer=10</li>
+<li>取值 $integer</li>
+<li>比较 (( integer &lt;= 20 )) 括号旁边和运算符两边必须添加空格</li>
+<li>运算 ((integer++)) integer=$((integer+1)) 运算不同于比较不需要空格 不要忘了还有一个$</li>
+</ul>
+<h2 id="单双引号"><a href="#单双引号" class="headerlink" title="单双引号"></a>单双引号</h2><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>$0 - 脚本名</li>
+<li>$1 到 $9 - 脚本的参数。 $1 是第一个参数，依此类推。</li>
+<li>$@ - 所有参数</li>
+<li>$# - 参数个数</li>
+<li>$? - 前一个命令的返回值</li>
+<li>$$ - 当前脚本的进程识别码</li>
+<li>!! - 完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 sudo !!再尝试一次。</li>
+<li>$_ - 上一条命令的最后一个参数。如果你正在使用的是交互式shell，你可以通过按下 Esc 之后键入 . 来获取这个值。</li>
+</ul>
+<p><strong>“函数参数不需要再（）里，而且函数里面的变量不能被外界访问”</strong></p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>for var in item1 item2 … itemN; do<br>    command1 command2 … commandN<br>done</p>
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>while condition; do<br>    command1<br>    command2<br>done</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">count=1</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ./buggy.sh 2&gt; out.log</span><br><span class="line">    <span class="keyword">if</span> [[ $? -ne 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;failed after <span class="variable">$count</span> times&quot;</span></span><br><span class="line">        cat out.log</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    ((count++))</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="条件-if后面有个分号"><a href="#条件-if后面有个分号" class="headerlink" title="条件 if后面有个分号"></a>条件 if后面有个分号</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">n=$(( RANDOM % <span class="number">100</span> ))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ n -eq 42 ]]; <span class="keyword">then</span>  </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Something went wrong&quot;</span></span><br><span class="line">    &gt;&amp;2 <span class="built_in">echo</span> <span class="string">&quot;The error was using magic numbers&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Everything went according to plan&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="测试文件-目录"><a href="#测试文件-目录" class="headerlink" title="测试文件, 目录"></a>测试文件, 目录</h2><h3 id="逻辑结构-amp-amp"><a href="#逻辑结构-amp-amp" class="headerlink" title="逻辑结构 || &amp;&amp;"></a>逻辑结构 || &amp;&amp;</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">!/bin/sh </span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = hi ] || [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = <span class="built_in">bye</span> ]; <span class="keyword">then</span> </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;The first argument was &quot;&#x27;</span><span class="variable">$1</span><span class="string">&#x27;&quot;&#x27;</span> </span><br><span class="line"><span class="keyword">fi</span> </span><br></pre></td></tr></table></figure>
+<h3 id="测试文件"><a href="#测试文件" class="headerlink" title="测试文件"></a>测试文件</h3><p>-f：是不是普通文件<br>-d: 是不是目录<br>-e：文件存在时返回true；<br>-s：文件非空时返回true。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> *; <span class="keyword">do</span> </span><br><span class="line"> <span class="keyword">if</span> [ -f <span class="variable">$filename</span> ]; <span class="keyword">then</span> </span><br><span class="line"> ls -l <span class="variable">$filename</span> </span><br><span class="line"> file <span class="variable">$filename</span> </span><br><span class="line"> <span class="keyword">else</span> </span><br><span class="line"> <span class="built_in">echo</span> <span class="variable">$filename</span> is not a regular file. </span><br><span class="line"> <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">done</span> </span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>shell</tag>
+      </tags>
+  </entry>
+</search>

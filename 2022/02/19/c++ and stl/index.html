@@ -20,28 +20,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="C++ and stlsort(a, b)a and b are pointer, range is [a, b). string (uva10815)read a linegetline(cin. string);note:don’t read ‘\n’usage:c++ 1234567891011121314 #include &lt;string&gt;#include &lt;iostre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ and stl">
+<meta property="og:url" content="http://example.com/2022/02/19/c++%20and%20stl/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C++ and stlsort(a, b)a and b are pointer, range is [a, b). string (uva10815)read a linegetline(cin. string);note:don’t read ‘\n’usage:c++ 1234567891011121314 #include &lt;string&gt;#include &lt;iostre">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-18T16:49:34.000Z">
+<meta property="article:modified_time" content="2022-02-18T16:50:55.811Z">
 <meta property="article:author" content="xmc">
+<meta property="article:tag" content="c++ stl">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/02/19/c++%20and%20stl/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Hexo</title>
+  <title>C++ and stl | Hexo</title>
   
 
 
@@ -182,9 +187,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -200,10 +206,9 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/19/c++%20and%20stl/" class="post-title-link" itemprop="url">C++ and stl</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          C++ and stl
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -227,7 +232,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="C-and-stl"><a href="#C-and-stl" class="headerlink" title="C++ and stl"></a>C++ and stl</h1><p>sort(a, b)<br>a and b are pointer, range is [a, b).</p>
+        <h1 id="C-and-stl"><a href="#C-and-stl" class="headerlink" title="C++ and stl"></a>C++ and stl</h1><p>sort(a, b)<br>a and b are pointer, range is [a, b).</p>
 <h2 id="string-uva10815"><a href="#string-uva10815" class="headerlink" title="string (uva10815)"></a>string (uva10815)</h2><h3 id="read-a-line"><a href="#read-a-line" class="headerlink" title="read a line"></a>read a line</h3><p>getline(cin. string);<br><strong>note</strong>:don’t read ‘\n’<br>usage:<br>c++</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">std::ifstream <span class="title">input</span><span class="params">(<span class="string">&quot;filename.txt&quot;</span>)</span></span>;</span><br><span class="line">    std::string line;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>( std::<span class="built_in">getline</span>( input, line ) ) &#123;</span><br><span class="line">        std::cout&lt;&lt;line&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>c read the ‘\n’</p>
@@ -288,325 +293,33 @@
 <p>原因在于foo( )和”hello world”串都会产生一个临时对象，而在C++中，这些临时对象都是const类型的。因此上面的表达式就是试图将一个const类型的对象转换为非const类型，这是非法的。<br>引用型参数应该在能被定义为const的情况下，尽量定义为const </p>
 <h2 id="map-and-set-uva230"><a href="#map-and-set-uva230" class="headerlink" title="map and set(uva230)"></a>map and set(uva230)</h2><p>set 适合添加或者删除元素，同时可以写一个函数，对map进行排列。<br>map 一般用来添加元素，而不用来删除元素，更适合查找。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/c-stl/" rel="tag"># c++ stl</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/19/test/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xmc">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/19/test/" class="post-title-link" itemprop="url">test</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-02-19 00:49:34" itemprop="dateCreated datePublished" datetime="2022-02-19T00:49:34+08:00">2022-02-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/19/test/" rel="prev" title="test">
+      <i class="fa fa-chevron-left"></i> test
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/19/shell/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xmc">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/02/19/shell/" class="post-title-link" itemprop="url">shell 编程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-02-19 00:49:34 / Modified: 00:52:06" itemprop="dateCreated datePublished" datetime="2022-02-19T00:49:34+08:00">2022-02-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="shell-编程"><a href="#shell-编程" class="headerlink" title="shell 编程"></a>shell 编程</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/search?type=content&amp;q=%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0shell%E8%84%9A%E6%9C%AC">https://www.zhihu.com/search?type=content&amp;q=%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0shell%E8%84%9A%E6%9C%AC</a><br><a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/2020/shell-tools/">https://missing-semester-cn.github.io/2020/shell-tools/</a></p>
-</blockquote>
-<h2 id="什么时候用shell"><a href="#什么时候用shell" class="headerlink" title="什么时候用shell"></a>什么时候用shell</h2><p>在某些情况下（尤其是你准备使用read时），你应该反问一下自己，你是否在使用正<br>确的工具来完成这项工作。请记住shell脚本的强项：操控简单的文件和命令。如前面提到的，当<br>你发现你的脚本写得有点繁琐，特别是涉及复杂的字符串或数学处理时，或许你就该试试Python、<br>Per或awk之类的脚本语言了。</p>
-<h2 id="易错"><a href="#易错" class="headerlink" title="易错"></a>易错</h2><ul>
-<li>空格：定义变量不要用空格，比较时才用空格</li>
-<li>变量 shell没有变量类型，可以把所有变量类型看成是字符类型，如果想要取得变量的字符串值需要用$, 想用到比较，整数时，需要一些多余的符号。</li>
-<li>条件语句中有分号, if 是then fi， for 和while是do，done</li>
-<li>第一行一定要加上：#!/usr/bin/bash</li>
-</ul>
-<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
-<li>$(cmd) 命令替换</li>
-<li>通配符</li>
-<li>shell可以获得上一条命令，参数</li>
-</ul>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
-<li>定义 string=”hello world”</li>
-<li>取值 $string</li>
-<li>比较 [[ $string =”hello world” ]]<br>-z:<br>[[$string]] 检查是否为空</li>
-<li>括号旁边和运算符两边必须添加空格</li>
-</ul>
-<h2 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h2><ul>
-<li>定义 integer=10</li>
-<li>取值 $integer</li>
-<li>比较 (( integer &lt;= 20 )) 括号旁边和运算符两边必须添加空格</li>
-<li>运算 ((integer++)) integer=$((integer+1)) 运算不同于比较不需要空格 不要忘了还有一个$</li>
-</ul>
-<h2 id="单双引号"><a href="#单双引号" class="headerlink" title="单双引号"></a>单双引号</h2><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
-<li>$0 - 脚本名</li>
-<li>$1 到 $9 - 脚本的参数。 $1 是第一个参数，依此类推。</li>
-<li>$@ - 所有参数</li>
-<li>$# - 参数个数</li>
-<li>$? - 前一个命令的返回值</li>
-<li>$$ - 当前脚本的进程识别码</li>
-<li>!! - 完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 sudo !!再尝试一次。</li>
-<li>$_ - 上一条命令的最后一个参数。如果你正在使用的是交互式shell，你可以通过按下 Esc 之后键入 . 来获取这个值。</li>
-</ul>
-<p><strong>“函数参数不需要再（）里，而且函数里面的变量不能被外界访问”</strong></p>
-<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>for var in item1 item2 … itemN; do<br>    command1 command2 … commandN<br>done</p>
-<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>while condition; do<br>    command1<br>    command2<br>done</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">count=1</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ./buggy.sh 2&gt; out.log</span><br><span class="line">    <span class="keyword">if</span> [[ $? -ne 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;failed after <span class="variable">$count</span> times&quot;</span></span><br><span class="line">        cat out.log</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    ((count++))</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="条件-if后面有个分号"><a href="#条件-if后面有个分号" class="headerlink" title="条件 if后面有个分号"></a>条件 if后面有个分号</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n=$(( RANDOM % <span class="number">100</span> ))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ n -eq 42 ]]; <span class="keyword">then</span>  </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Something went wrong&quot;</span></span><br><span class="line">    &gt;&amp;2 <span class="built_in">echo</span> <span class="string">&quot;The error was using magic numbers&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Everything went according to plan&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="测试文件-目录"><a href="#测试文件-目录" class="headerlink" title="测试文件, 目录"></a>测试文件, 目录</h2><h3 id="逻辑结构-amp-amp"><a href="#逻辑结构-amp-amp" class="headerlink" title="逻辑结构 || &amp;&amp;"></a>逻辑结构 || &amp;&amp;</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">!/bin/sh </span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = hi ] || [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = <span class="built_in">bye</span> ]; <span class="keyword">then</span> </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;The first argument was &quot;&#x27;</span><span class="variable">$1</span><span class="string">&#x27;&quot;&#x27;</span> </span><br><span class="line"><span class="keyword">fi</span> </span><br></pre></td></tr></table></figure>
-<h3 id="测试文件"><a href="#测试文件" class="headerlink" title="测试文件"></a>测试文件</h3><p>-f：是不是普通文件<br>-d: 是不是目录<br>-e：文件存在时返回true；<br>-s：文件非空时返回true。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> *; <span class="keyword">do</span> </span><br><span class="line"> <span class="keyword">if</span> [ -f <span class="variable">$filename</span> ]; <span class="keyword">then</span> </span><br><span class="line"> ls -l <span class="variable">$filename</span> </span><br><span class="line"> file <span class="variable">$filename</span> </span><br><span class="line"> <span class="keyword">else</span> </span><br><span class="line"> <span class="built_in">echo</span> <span class="variable">$filename</span> is not a regular file. </span><br><span class="line"> <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">done</span> </span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/03/WSL%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xmc">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/03/WSL%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">WSL配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-10-03 17:40:56 / Modified: 20:44:06" itemprop="dateCreated datePublished" datetime="2021-10-03T17:40:56+08:00">2021-10-03</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="共享-SSH-Key"><a href="#共享-SSH-Key" class="headerlink" title="共享 SSH Key"></a>共享 SSH Key</h2><p>本机上已经有一个 SSH Key 了，不想在 WSL 中再生成一个，因为这本来就是同一台电脑，所以可以把 Windows 上的 Key 复制到 WSL 中。具体操作方法如下。</p>
-<h3 id="复制-SSH-Key-到-WSL"><a href="#复制-SSH-Key-到-WSL" class="headerlink" title="复制 SSH Key 到 WSL"></a>复制 SSH Key 到 WSL</h3><p>在 WSL 中执行，其中 是你 Windows 的用户名：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r /mnt/c/Users/&lt;username&gt;/.ssh ~/.ssh)</span><br></pre></td></tr></table></figure>
-
-<p>如下图就是成功了。</p>
-<blockquote>
-<p>这是一个块<br>这是一个块</p>
-</blockquote>
-<p><img src="D:\document\note\success.png" alt="success"></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
-<p><a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/">https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/</a><br><a target="_blank" rel="noopener" href="https://github.community/t/having-an-issue-pull-and-push-in-github/13198/6">https://github.community/t/having-an-issue-pull-and-push-in-github/13198/6</a></p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/03/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="xmc">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/03/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-03 00:57:27" itemprop="dateCreated datePublished" datetime="2021-10-03T00:57:27+08:00">2021-10-03</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -659,6 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-and-stl"><span class="nav-number">1.</span> <span class="nav-text">C++ and stl</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string-uva10815"><span class="nav-number">1.1.</span> <span class="nav-text">string (uva10815)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#read-a-line"><span class="nav-number">1.1.1.</span> <span class="nav-text">read a line</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#read-a-string"><span class="nav-number">1.1.2.</span> <span class="nav-text">read a string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-the-substring-uva10391"><span class="nav-number">1.1.3.</span> <span class="nav-text">get the substring(uva10391)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">函数:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E7%BD%AE%E6%96%B9%E6%B3%95%EF%BC%9As-substr-%E5%B8%B8%E5%92%8Cs-find-%E4%B8%80%E5%9D%97%E7%94%A8%E3%80%82"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">内置方法：s.substr() 常和s.find()一块用。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-to-char"><span class="nav-number">1.1.4.</span> <span class="nav-text">string to char[]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lower-bound-begin-end-x"><span class="nav-number">1.2.</span> <span class="nav-text">lower_bound(begin, end, x)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vector-uva101"><span class="nav-number">1.3.</span> <span class="nav-text">vector (uva101)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#queue-uva10935"><span class="nav-number">1.4.</span> <span class="nav-text">queue (uva10935)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#io-uva10815-root-src-algorithm-stl-string-string-cpp"><span class="nav-number">1.5.</span> <span class="nav-text">io (uva10815, &#x2F;root&#x2F;src&#x2F;algorithm&#x2F;stl&#x2F;string&#x2F;string.cpp)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-uva10815"><span class="nav-number">1.6.</span> <span class="nav-text">set (uva10815)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#s-insert"><span class="nav-number">1.6.1.</span> <span class="nav-text">s.insert();</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-uva12096-uva1592"><span class="nav-number">1.7.</span> <span class="nav-text">map (uva12096, uva1592)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setw-int-n-%E6%89%93%E5%8D%B0%E6%A0%BC%E5%BC%8F-uva1593"><span class="nav-number">1.8.</span> <span class="nav-text">setw(int n) (打印格式 uva1593)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fill-n-WL-MAXN-0-memset"><span class="nav-number">1.9.</span> <span class="nav-text">fill_n(WL, MAXN, 0) memset()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#auto-%E7%94%A8%E6%B3%95%EF%BC%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9-%E5%AF%B9%E4%BA%8E%E6%9F%90%E4%BA%9B%E5%8F%98%E9%87%8F%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%81%97%E6%BC%8F%E6%9F%90%E4%BA%9B%E5%B1%9E%E6%80%A7-%E6%98%AF%E5%9C%A8%E7%BC%96%E8%AF%91%E6%97%B6%E6%89%A7%E8%A1%8C%E7%9A%84%EF%BC%8C%E7%9B%B8%E5%BD%93%E4%BA%8E%E5%AE%8F%E3%80%82"><span class="nav-number">1.10.</span> <span class="nav-text">auto 用法，注意事项(对于某些变量可能会遗漏某些属性) 是在编译时执行的，相当于宏。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ios-sync-with-stdio-false"><span class="nav-number">1.11.</span> <span class="nav-text">ios::sync_with_stdio(false)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8-amp"><span class="nav-number">1.12.</span> <span class="nav-text">引用&amp;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-and-set-uva230"><span class="nav-number">1.13.</span> <span class="nav-text">map and set(uva230)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

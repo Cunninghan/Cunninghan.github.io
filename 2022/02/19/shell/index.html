@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":3,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="shell 编程参考 https:&#x2F;&#x2F;www.zhihu.com&#x2F;search?type&#x3D;content&amp;q&#x3D;%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0shell%E8%84%9A%E6%9C%AChttps:&#x2F;&#x2F;missing-semester-cn.github.io&#x2F;2020&#x2F;shell-tools&#x2F;  什么时候用shell在某些情况下（尤其是你准备使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell 编程">
+<meta property="og:url" content="http://example.com/2022/02/19/shell/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="shell 编程参考 https:&#x2F;&#x2F;www.zhihu.com&#x2F;search?type&#x3D;content&amp;q&#x3D;%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0shell%E8%84%9A%E6%9C%AChttps:&#x2F;&#x2F;missing-semester-cn.github.io&#x2F;2020&#x2F;shell-tools&#x2F;  什么时候用shell在某些情况下（尤其是你准备使用">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-18T16:49:34.000Z">
+<meta property="article:modified_time" content="2022-02-18T16:52:06.453Z">
+<meta property="article:author" content="xmc">
+<meta property="article:tag" content="shell">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/02/19/shell/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>shell 编程 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/19/shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="xmc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          shell 编程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-02-19 00:49:34 / Modified: 00:52:06" itemprop="dateCreated datePublished" datetime="2022-02-19T00:49:34+08:00">2022-02-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="shell-编程"><a href="#shell-编程" class="headerlink" title="shell 编程"></a>shell 编程</h1><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/search?type=content&amp;q=%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0shell%E8%84%9A%E6%9C%AC">https://www.zhihu.com/search?type=content&amp;q=%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0shell%E8%84%9A%E6%9C%AC</a><br><a target="_blank" rel="noopener" href="https://missing-semester-cn.github.io/2020/shell-tools/">https://missing-semester-cn.github.io/2020/shell-tools/</a></p>
+</blockquote>
+<h2 id="什么时候用shell"><a href="#什么时候用shell" class="headerlink" title="什么时候用shell"></a>什么时候用shell</h2><p>在某些情况下（尤其是你准备使用read时），你应该反问一下自己，你是否在使用正<br>确的工具来完成这项工作。请记住shell脚本的强项：操控简单的文件和命令。如前面提到的，当<br>你发现你的脚本写得有点繁琐，特别是涉及复杂的字符串或数学处理时，或许你就该试试Python、<br>Per或awk之类的脚本语言了。</p>
+<h2 id="易错"><a href="#易错" class="headerlink" title="易错"></a>易错</h2><ul>
+<li>空格：定义变量不要用空格，比较时才用空格</li>
+<li>变量 shell没有变量类型，可以把所有变量类型看成是字符类型，如果想要取得变量的字符串值需要用$, 想用到比较，整数时，需要一些多余的符号。</li>
+<li>条件语句中有分号, if 是then fi， for 和while是do，done</li>
+<li>第一行一定要加上：#!/usr/bin/bash</li>
+</ul>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<li>$(cmd) 命令替换</li>
+<li>通配符</li>
+<li>shell可以获得上一条命令，参数</li>
+</ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
+<li>定义 string=”hello world”</li>
+<li>取值 $string</li>
+<li>比较 [[ $string =”hello world” ]]<br>-z:<br>[[$string]] 检查是否为空</li>
+<li>括号旁边和运算符两边必须添加空格</li>
+</ul>
+<h2 id="整数"><a href="#整数" class="headerlink" title="整数"></a>整数</h2><ul>
+<li>定义 integer=10</li>
+<li>取值 $integer</li>
+<li>比较 (( integer &lt;= 20 )) 括号旁边和运算符两边必须添加空格</li>
+<li>运算 ((integer++)) integer=$((integer+1)) 运算不同于比较不需要空格 不要忘了还有一个$</li>
+</ul>
+<h2 id="单双引号"><a href="#单双引号" class="headerlink" title="单双引号"></a>单双引号</h2><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
+<li>$0 - 脚本名</li>
+<li>$1 到 $9 - 脚本的参数。 $1 是第一个参数，依此类推。</li>
+<li>$@ - 所有参数</li>
+<li>$# - 参数个数</li>
+<li>$? - 前一个命令的返回值</li>
+<li>$$ - 当前脚本的进程识别码</li>
+<li>!! - 完整的上一条命令，包括参数。常见应用：当你因为权限不足执行命令失败时，可以使用 sudo !!再尝试一次。</li>
+<li>$_ - 上一条命令的最后一个参数。如果你正在使用的是交互式shell，你可以通过按下 Esc 之后键入 . 来获取这个值。</li>
+</ul>
+<p><strong>“函数参数不需要再（）里，而且函数里面的变量不能被外界访问”</strong></p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>for var in item1 item2 … itemN; do<br>    command1 command2 … commandN<br>done</p>
+<h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><p>while condition; do<br>    command1<br>    command2<br>done</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">count=1</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ./buggy.sh 2&gt; out.log</span><br><span class="line">    <span class="keyword">if</span> [[ $? -ne 0 ]]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;failed after <span class="variable">$count</span> times&quot;</span></span><br><span class="line">        cat out.log</span><br><span class="line">        <span class="built_in">break</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    ((count++))</span><br><span class="line"></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="条件-if后面有个分号"><a href="#条件-if后面有个分号" class="headerlink" title="条件 if后面有个分号"></a>条件 if后面有个分号</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n=$(( RANDOM % <span class="number">100</span> ))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ n -eq 42 ]]; <span class="keyword">then</span>  </span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Something went wrong&quot;</span></span><br><span class="line">    &gt;&amp;2 <span class="built_in">echo</span> <span class="string">&quot;The error was using magic numbers&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Everything went according to plan&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="测试文件-目录"><a href="#测试文件-目录" class="headerlink" title="测试文件, 目录"></a>测试文件, 目录</h2><h3 id="逻辑结构-amp-amp"><a href="#逻辑结构-amp-amp" class="headerlink" title="逻辑结构 || &amp;&amp;"></a>逻辑结构 || &amp;&amp;</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">!/bin/sh </span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = hi ] || [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = <span class="built_in">bye</span> ]; <span class="keyword">then</span> </span><br><span class="line"> <span class="built_in">echo</span> <span class="string">&#x27;The first argument was &quot;&#x27;</span><span class="variable">$1</span><span class="string">&#x27;&quot;&#x27;</span> </span><br><span class="line"><span class="keyword">fi</span> </span><br></pre></td></tr></table></figure>
+<h3 id="测试文件"><a href="#测试文件" class="headerlink" title="测试文件"></a>测试文件</h3><p>-f：是不是普通文件<br>-d: 是不是目录<br>-e：文件存在时返回true；<br>-s：文件非空时返回true。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> *; <span class="keyword">do</span> </span><br><span class="line"> <span class="keyword">if</span> [ -f <span class="variable">$filename</span> ]; <span class="keyword">then</span> </span><br><span class="line"> ls -l <span class="variable">$filename</span> </span><br><span class="line"> file <span class="variable">$filename</span> </span><br><span class="line"> <span class="keyword">else</span> </span><br><span class="line"> <span class="built_in">echo</span> <span class="variable">$filename</span> is not a regular file. </span><br><span class="line"> <span class="keyword">fi</span> </span><br><span class="line"><span class="keyword">done</span> </span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/shell/" rel="tag"># shell</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/03/WSL%E9%85%8D%E7%BD%AE/" rel="prev" title="WSL配置">
+      <i class="fa fa-chevron-left"></i> WSL配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/19/test/" rel="next" title="test">
+      test <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shell-%E7%BC%96%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">shell 编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">1.1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8shell"><span class="nav-number">1.2.</span> <span class="nav-text">什么时候用shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%93%E9%94%99"><span class="nav-number">1.3.</span> <span class="nav-text">易错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-number">1.4.</span> <span class="nav-text">优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.5.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E6%95%B0"><span class="nav-number">1.6.</span> <span class="nav-text">整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E5%8F%8C%E5%BC%95%E5%8F%B7"><span class="nav-number">1.7.</span> <span class="nav-text">单双引号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">1.8.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-number">1.8.1.</span> <span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF"><span class="nav-number">1.9.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for"><span class="nav-number">1.9.1.</span> <span class="nav-text">for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while"><span class="nav-number">1.9.2.</span> <span class="nav-text">while</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6-if%E5%90%8E%E9%9D%A2%E6%9C%89%E4%B8%AA%E5%88%86%E5%8F%B7"><span class="nav-number">1.10.</span> <span class="nav-text">条件 if后面有个分号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6-%E7%9B%AE%E5%BD%95"><span class="nav-number">1.11.</span> <span class="nav-text">测试文件, 目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84-amp-amp"><span class="nav-number">1.11.1.</span> <span class="nav-text">逻辑结构 || &amp;&amp;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6"><span class="nav-number">1.11.2.</span> <span class="nav-text">测试文件</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">xmc</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xmc</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
